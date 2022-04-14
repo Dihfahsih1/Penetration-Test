@@ -63,7 +63,7 @@ class ICMP(Structure):
 def main():
 
     # specify host to listen on
-    host = raw_input("Specify host to listen on: ")
+    host = input("Specify host to listen on: ")
 
     # create a raw socket and bind it to the interface
     if os.name == "nt":
@@ -92,8 +92,8 @@ def main():
             ip_header = IP(raw_buffer[0:20])
 
             # print out detected protocol and host
-            print "Protocol: %s %s -> %s" % (ip_header.protocol,
-            ip_header.src_address, ip_header.dst_address)
+            print ("Protocol: %s %s -> %s" % (ip_header.protocol,
+            ip_header.src_address, ip_header.dst_address))
 
             #identify ICMP packets
             if ip_header.protocol == "ICMP":
@@ -106,8 +106,8 @@ def main():
                 # create ICMP Structure
                 icmp_header = ICMP(buf)
 
-                print "ICMP - > Type: %d Code: %d" %(icmp_header.type,
-                icmp_header.code)
+                print ("ICMP - > Type: %d Code: %d" %(icmp_header.type,
+                icmp_header.code))
 
             # CTRL-C interruption
     except KeyboardInterrupt:

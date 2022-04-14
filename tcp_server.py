@@ -1,4 +1,3 @@
-#
 # TCP server as presented in 'Black Hat Python' by Justin Seitz
 #
 
@@ -12,7 +11,7 @@ def handle_client(client_socket):
   #print out what client sends
   request = client_socket.recv(1024)
 
-  print "[*] Received %s" % request
+  print ("[*] Received %s" % request)
 
   # send back some packet
   client_socket.send("ACK!")
@@ -30,12 +29,12 @@ def server():
 
     server.listen(5)
 
-    print "[*] Listetning on %s:%d" % (bind_ip, bind_port)
+    print ("[*] Listetning on %s:%d" % (bind_ip, bind_port))
 
     client, addr = server.accept()
 
-    print "[*] Accepted connection from %s:%d" % (addr[0],addr[1])
-
+    print ("[*] Accepted connection from %s:%d" % (addr[0],addr[1])
+)
     # spin up our client thread to handle incoming data
     client_handler = threading.Thread(target=handle_client,args=(client))
     client_handler.start()

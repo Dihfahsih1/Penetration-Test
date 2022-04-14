@@ -27,30 +27,30 @@ def main():
     global upload_destination
     global target
 
-    target = raw_input('Specify target host: ')
-    port = int(raw_input('Specify target port: '))
-    com = raw_input('Select functionality (type h for help): ')
+    target = input('Specify target host: ')
+    port = int(input('Specify target port: '))
+    com = input('Select functionality (type h for help): ')
 
     if com == "h" or com == "":
-        print "'l': listen on [host]:[port] for incoming connections"
-        print """'e':  execute the given file upon receiving a connection"""
-        print "'c': initialize command shell"
-        print """'u': upon receiving connection upload a file
-        and write to [destination]"""
+        print ("'l': listen on [host]:[port] for incoming connections")
+        print ("""'e':  execute the given file upon receiving a connection""")
+        print ("'c': initialize command shell")
+        print ("""'u': upon receiving connection upload a file
+        and write to [destination]""")
         main()
     elif com == "l":
         listen = True
         server_loop()
     elif com == "e":
-        execute = raw_input('Provide file to execute: ')
+        execute = input('Provide file to execute: ')
     elif com == "c":
         command = True
-        comm = raw_input('Provide command: ')
+        comm = input('Provide command: ')
         run_command(comm)
     elif com == "u":
-        upload_destination = raw_input('Provide upload destination: ')
+        upload_destination = input('Provide upload destination: ')
     else:
-        print "Command unknown. Type 'h' fpr help."
+        print ("Command unknown. Type 'h' fpr help.")
         main()
 
 
@@ -97,10 +97,10 @@ def client_sender(buffer):
                 if recv_len < 4096:
                     break
 
-            print response,
+            print (response,)
 
             # wait for more input
-            buffer = raw_input("")
+            buffer = input("")
             buffer += "/n"
 
             # send it off
@@ -108,7 +108,7 @@ def client_sender(buffer):
 
     except:
 
-        print "[*] Exception... exiting"
+        print ("[*] Exception... exiting")
 
         # tear down connection
         clinet.close()
@@ -131,7 +131,7 @@ def server_loop():
         client_thread = threading.Thread(target = client_handler,
         args = (client_socket))
         client_thread.start()
-        print "Listening on %s" % target
+        print ("Listening on %s" % target)
 
 def run_command(command):
 

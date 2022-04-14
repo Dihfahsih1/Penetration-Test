@@ -13,5 +13,5 @@ def main():
     source_code = page.read()
     with io.FileIO(url + "_source_code.txt", "w") as file:
         file.write(source_code)
-    print "Grabbing %s source code and writing to %s_source_code.txt...\n" % (url, url)
-    print "[+] Done"
+    print( "Grabbing %s source code and writing to %s_source_code.txt...\n" % (url, url))
+    print ("[+] Done")

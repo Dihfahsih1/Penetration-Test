@@ -1,9 +1,4 @@
-#
-# Nmap python port scanner
-#
-# Based on implementation presented in 'Violent Python' by TJ O'Connor and
-# uses python-nmap library by Alexandre Norman
-
+#Use nmap library
 import nmap
 import optparse
 

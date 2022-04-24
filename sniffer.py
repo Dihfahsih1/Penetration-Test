@@ -3,8 +3,6 @@
 # form 'Black Hat Python' by Justin Seitz
 #
 
-
-
 import socket
 import os
 import struct

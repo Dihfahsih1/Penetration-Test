@@ -1,6 +1,6 @@
 #
 # Tool for downloading webpages' source code using mechanize
-#
+
 
 import mechanize
 import io
